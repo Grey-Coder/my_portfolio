@@ -16,7 +16,7 @@ class Submission(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     message = db.Column(db.Text, nullable=False)
-    timestamp = db.Column(db.DateTime, nullable=False) # We will set the default in the route
+    timestamp = db.Column(db.DateTime(timezone=True), nullable=False) # We will set the default in the route
 
     def __repr__(self):
         return f'<Submission {self.name}>'
