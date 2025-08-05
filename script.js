@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- (All your existing JS for hamburger, navbar, and modals) ---
+    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navbar = document.querySelector('.navbar');
@@ -53,16 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // --- NEW PARALLAX SCROLL SCRIPT FOR LOGOS ---
+    
     const logos = document.querySelectorAll('.background-logos i');
 
     window.addEventListener('scroll', () => {
         const scrollValue = window.scrollY;
 
-        // Apply a transform to each logo at a different rate
+    
         logos.forEach((logo, index) => {
-            // Each logo gets a different "speed"
-            // The multiplier (e.g., 0.2, 0.1, 0.3) determines how fast it moves
             let speed = (index % 3 + 1) * 0.1; 
             logo.style.transform = `translateY(-${scrollValue * speed}px)`;
         });

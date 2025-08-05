@@ -2,11 +2,10 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
-from pytz import timezone  # <-- ADD THIS IMPORT
+from pytz import timezone
 
 app = Flask(__name__, static_url_path='', static_folder='.')
 
-# --- Database Setup ---
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -16,11 +15,11 @@ class Submission(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     message = db.Column(db.Text, nullable=False)
-    timestamp = db.Column(db.DateTime(timezone=True), nullable=False) # We will set the default in the route
+    timestamp = db.Column(db.DateTime(timezone=True), nullable=False)
 
     def __repr__(self):
         return f'<Submission {self.name}>'
-# --- End of Setup ---
+
 
 @app.route('/')
 def home():
@@ -35,11 +34,8 @@ def submit_form():
         email = request.form['email']
         message = request.form['message']
         
-        # --- CHANGE THIS LINE ---
-        # Get the current time in the 'Asia/Kolkata' timezone
         india_time = datetime.now(timezone('Asia/Kolkata'))
         
-        # Create a new submission object and add it to the database
         new_submission = Submission(name=name, email=email, message=message, timestamp=india_time)
         db.session.add(new_submission)
         db.session.commit()

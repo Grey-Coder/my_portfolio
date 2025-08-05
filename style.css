@@ -394,7 +394,6 @@ body {
     }
 }
 
-/* ... (all your existing CSS code) ... */
 
 /* Projects */
 .project-card {
@@ -485,27 +484,25 @@ body {
 }
 
 
-/* ... (rest of your CSS) ... */
-/* --- NEW BACKGROUND LOGO STYLES --- */
 .background-logos {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Puts the logos behind all other content */
+    z-index: -1; 
     overflow: hidden;
 }
 
 .background-logos i {
     position: absolute;
-    color: rgba(74, 144, 226, 0.1); /* Very faint blue color */
-    font-size: 10vw; /* Responsive size */
-    user-select: none; /* Prevents text selection */
-    transition: transform 0.2s ease-out; /* Smooths movement */
+    color: rgba(74, 144, 226, 0.1); 
+    font-size: 10vw; 
+    user-select: none; 
+    transition: transform 0.2s ease-out;
 }
 
-/* Initial positions for the logos */
+
 .background-logos .fa-python { top: 10%; left: 5%; }
 .background-logos .fa-java { top: 20%; left: 80%; }
 .background-logos .fa-react { top: 60%; left: 70%; }
@@ -515,9 +512,6 @@ body {
 .background-logos .fa-database { top: 5%; left: 40%; }
 
 
-/* ... (All your existing CSS) ... */
-
-/* --- NEW CONTACT FORM STYLES --- */
 .contact-form {
     max-width: 700px;
     margin: 2rem auto;
