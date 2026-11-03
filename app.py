@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
@@ -26,6 +26,11 @@ def home():
     with app.app_context():
         db.create_all()
     return render_template('index.html')
+
+@app.route('/v2/')
+@app.route('/v2')
+def portfolio_v2():
+    return send_from_directory('v2', 'index.html')
 
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
